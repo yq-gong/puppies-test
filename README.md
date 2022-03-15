@@ -1,4 +1,4 @@
-# puppies-test
+# Getting Your Dog Images!
 This is a small page for showing puppies of random breed
 
 # Instructions
