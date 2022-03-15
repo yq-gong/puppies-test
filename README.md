@@ -1,5 +1,5 @@
 # Getting Your Dog Images!
-This is a small page for showing puppies of random breed
+This is a small page for showing puppies of a preferred breed or just random breed
 
 # Instructions
 Please run yarn and then yarn start. Then please access http://localhost:3000/ .
