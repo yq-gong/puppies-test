@@ -2,7 +2,7 @@
   <div>
     <div class="top">
       <input
-        placeholder="Input Dog Breed Here"
+        placeholder="Input Your Favourite Dog Breed Here"
         type="text"
         class="my-input"
         ref="textSuggestionRef"
