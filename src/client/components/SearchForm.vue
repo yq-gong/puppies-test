@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="top">
-      <h2 style="Avenir Next">Get Your Copy of a Puppy!</h2>
+      <h2 style="Avenir Next">Get Your Copy of a Lovely Puppy!</h2>
       <input
         placeholder="https://dog.ceo/api/breeds/image/random"
         type="text"
@@ -11,7 +11,10 @@
         @input="referralSuggestion"
         id="inputBox"
       />
-      <button style="width: 12rem; height: 6rem; font-size: 2rem">
+      <button
+        style="width: 12rem; height: 6rem; font-size: 2rem"
+        @click="fetchPuppy"
+      >
         Fetch
       </button>
     </div>
@@ -29,10 +32,11 @@
         </ul>
       </div>
     </div>
+    <img v-show="!!onePuppyImgUrl" :src="onePuppyImgUrl" />
   </div>
 </template>
 <script>
-import { getSearchResponse } from "../../server/index";
+import { getSearchResponse, getPuppy } from "../../server/index";
 
 export default {
   data() {
@@ -42,6 +46,7 @@ export default {
       allResponseData: [],
       inputVal: "",
       completedSuggestions: [],
+      onePuppyImgUrl: "",
     };
   },
 
@@ -51,11 +56,23 @@ export default {
       this.textSuggestionState = false;
     },
 
-    async referralSuggestion(e) {
+    async referralSuggestion() {
       try {
         // fetch the response from the endpoint and store it in local variable
         const response = await getSearchResponse(6, this.inputVal);
         this.allResponseData = response.data.results.docs;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async fetchPuppy() {
+      try {
+        // fetch the response from the endpoint and store it in local variable
+        const response = await getPuppy();
+        this.onePuppyImgUrl =
+          response.data.status === "success"
+            ? response.data.message
+            : this.onePuppyImgUrl;
       } catch (error) {
         console.error(error);
       }
