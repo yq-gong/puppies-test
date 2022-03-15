@@ -46,7 +46,8 @@ export default {
       allResponseData: [],
       inputVal: "",
       completedSuggestions: [],
-      onePuppyImgUrl: "",
+      onePuppyImgUrl:
+        "https://images.dog.ceo/breeds/saluki/n02091831_10978.jpg",
     };
   },
 
