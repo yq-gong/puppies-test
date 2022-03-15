@@ -12,13 +12,19 @@
         id="inputBox"
       />
       <button
-        style="width: 12rem; height: 6rem; font-size: 2rem"
+        style="width: 16rem; height: 6rem; font-size: 1.5rem"
         @click="fetchPuppy"
       >
-        Fetch
+        Fetch Input Breed
+      </button>
+      <button
+        style="width: 16rem; height: 6rem; font-size: 1.5rem"
+        @click="fetchAnyPuppy"
+      >
+        Fetch Any Puppy
       </button>
     </div>
-    <div :v-show="textSuggestionState">
+    <div v-show="false">
       <div class="my-input-suggestion" id="scrollContent1">
         <ul
           id="ulContent"
@@ -66,14 +72,33 @@ export default {
         console.error(error);
       }
     },
+
+    async fetchAnyPuppy() {
+      try {
+        const randomResponse = await getPuppy(
+          "https://dog.ceo/api/breeds/image/random"
+        );
+        this.onePuppyImgUrl = randomResponse.data.message;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async fetchPuppy() {
       try {
-        // fetch the response from the endpoint and store it in local variable
-        const response = await getPuppy();
-        this.onePuppyImgUrl =
-          response.data.status === "success"
-            ? response.data.message
-            : this.onePuppyImgUrl;
+        const allInput = this.inputVal.split(" ");
+        const paramFromInput =
+          allInput.length === 1 ? allInput[0] : allInput.reverse().join("/");
+        const breededUrl = `https://dog.ceo/api/breed/${paramFromInput}/images/random`;
+        const response = await getPuppy(breededUrl);
+        if (response.data.status === "success")
+          this.onePuppyImgUrl = response.data.message;
+        else {
+          const randomResponse = await getPuppy(
+            "https://dog.ceo/api/breeds/image/random"
+          );
+          this.onePuppyImgUrl = randomResponse.data.message;
+        }
       } catch (error) {
         console.error(error);
       }

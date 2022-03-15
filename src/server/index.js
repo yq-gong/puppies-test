@@ -7,6 +7,6 @@ export async function getSearchResponse(numberOfResults, searchTerm) {
   );
 }
 
-export async function getPuppy() {
-  return axios.get(basePuppyURL);
+export async function getPuppy(url = basePuppyURL) {
+  return axios.get(url);
 }

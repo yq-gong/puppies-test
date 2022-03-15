@@ -6,7 +6,7 @@
         data-testid="brand-logo"
         class="btui-c-link btui-c-link--primary bgui-c-header__brand-logo-link"
         rel=""
-        ><h4>Back Here</h4>
+        ><h4>Back to default</h4>
       </a>
       <a href="https://dog.ceo/dog-api/" style="float:right" target="_blank">Source: Dog API</a>
     </div>
