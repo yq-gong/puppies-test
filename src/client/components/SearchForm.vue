@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="top">
-      <h2 style="Avenir Next">Car Hire – Search, Compare & Save</h2>
+      <h2 style="Avenir Next">Get Your Copy of a Puppy!</h2>
       <input
-        :placeholder="placeHolder"
+        placeholder="https://dog.ceo/api/breeds/image/random"
         type="text"
         class="my-input"
         ref="textSuggestionRef"
@@ -12,7 +12,7 @@
         id="inputBox"
       />
       <button style="width: 12rem; height: 6rem; font-size: 2rem">
-        Search
+        Fetch
       </button>
     </div>
     <div :v-show="textSuggestionState">
