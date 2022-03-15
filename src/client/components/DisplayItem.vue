@@ -9,8 +9,10 @@
         ><h4>Back to default</h4>
       </a>
       <a href="https://dog.ceo/dog-api/" style="float:right" target="_blank">Source: Dog API</a>
+      <a href="https://dog.ceo/dog-api/breeds-list" style="float:right; margin-right: 20px" target="_blank">Breed List</a>
     </div>
     <br />
+    <h2 style="Avenir Next">Get Your a Copy of a Lovely Puppy!</h2>
     <search-form />
   </div>
 </template>

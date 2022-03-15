@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="top">
-      <h2 style="Avenir Next">Get Your Copy of a Lovely Puppy!</h2>
       <input
-        placeholder="https://dog.ceo/api/breeds/image/random"
+        placeholder="Input Dog Breed Here"
         type="text"
         class="my-input"
         ref="textSuggestionRef"
@@ -86,7 +85,7 @@ export default {
 
     async fetchPuppy() {
       try {
-        const allInput = this.inputVal.split(" ");
+        const allInput = this.inputVal.toLowerCase().split(" ");
         const paramFromInput =
           allInput.length === 1 ? allInput[0] : allInput.reverse().join("/");
         const breededUrl = `https://dog.ceo/api/breed/${paramFromInput}/images/random`;
